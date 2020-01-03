@@ -1,0 +1,181 @@
+html
+  line-height: 1.5
+
+  @media only screen and (min-width: 0)
+    font-size: $fontsize.default
+
+  @media only screen and (min-width: $medium-screen)
+    font-size: $fontsize.default + 0.5
+
+  @media only screen and (min-width: $large-screen)
+    font-size: $fontsize.default + 1
+
+  font-family: $font.default
+  font-weight: normal
+  color: $color.text
+
+// -----------------------------------------------------------------------------
+// Headlines
+// -----------------------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6
+  font-family: $font.title
+  line-height: 1.3
+
+// Header Styles
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a
+  font-weight: inherit
+
+h1
+  font-size: $fontsize.h1
+  line-height: 110%
+  margin: 0 0 ($fontsize.h1 / 2.5) 0
+
+h2
+  font-size: $fontsize.h2
+  line-height: 110%
+  margin: 0 0 ($fontsize.h2 / 2.5) 0
+
+h3
+  font-size: $fontsize.h3
+  line-height: 110%
+  margin: 0 0 ($fontsize.h3 / 2.5) 0
+
+h4
+  font-size: $fontsize.h4
+  font-family: $font.titleSemiBold
+  line-height: 110%
+  margin: $fontsize.h4 0 ($fontsize.h4 / 3.5) 0
+
+h5
+  font-size: $fontsize.h5
+  font-family: $font.titleSemiBold
+  line-height: 110%
+  margin: $fontsize.h5 0 ($fontsize.h5 / 3) 0
+
+h6
+  font-size: $fontsize.h6
+  line-height: 110%
+  margin: ($fontsize.h6 / 1.5) 0 ($fontsize.h6 / 3) 0
+
+// -----------------------------------------------------------------------------
+// Anker, paragraphs, quotes
+// -----------------------------------------------------------------------------
+
+a
+  text-decoration: none
+  color: $color.primary
+  font-family: $font.semibold
+
+  &:hover
+    text-decoration: underline
+
+p
+  line-height: 140%
+  margin: ($fontsize.default / 1.5) 0 ($fontsize.default / 2.5) 0
+
+blockquote
+  margin: 20px 0
+  padding: .5rem 0 .5rem 1.5rem
+  border-left: 5px solid $color.primary
+  font-family: $font.emph
+  font-size: $fontsize.large
+  line-height: 170%
+
+  p
+    font-size: $fontsize.large
+    line-height: 170%
+
+// -----------------------------------------------------------------------------
+// Lists
+// -----------------------------------------------------------------------------
+
+ul
+  list-style: disc outside
+  margin-left: 2em
+  margin-top: 1em
+  margin-bottom: 1em
+
+  li
+    display: list-item
+
+ol
+  counter-reset: item
+  margin-left: 2em
+  margin-top: 1em
+  margin-bottom: 1em
+  padding: 0
+
+  > li
+    counter-increment: item
+    list-style-type: none
+    margin: 0
+    text-indent: -1.2rem
+
+    &::before
+      content: counter(item) '.'
+      display: inline-block
+      font-family: $font.bold
+      padding-right: .5rem
+      text-align: right
+      width: 1.5rem
+
+// -----------------------------------------------------------------------------
+// Code
+// -----------------------------------------------------------------------------
+
+code
+  background-color: $color.shadow
+  padding: 0 .3rem
+  margin: 0 .3rem
+  border-radius: $border-radius
+  font-family: $font.mono
+
+pre
+  overflow-x: auto
+  background-color: $color.text
+  color: $color.white
+  border-radius: $border-radius
+  padding: 1rem
+  font-family: $font.mono
+  font-size: $fontsize.default
+  margin: 1rem 0
+  max-height: 20em
+  overflow: scroll
+
+  &.figure
+    background: whitesmoke
+    color: $color.text
+    width: auto
+    display: inline-block
+    padding-left: 2rem
+    padding-right: 2rem
+
+  code
+    background-color: inherit
+    margin: 0
+    padding: 0
+
+// -----------------------------------------------------------------------------
+// Text styles
+// -----------------------------------------------------------------------------
+
+em
+  font-family: $font.emph
+
+strong
+  font-family: $font.bold
+
+small
+  font-size: 75%
+
+.center
+  text-align: center
+
+// -----------------------------------------------------------------------------
+// Images
+// -----------------------------------------------------------------------------
+
+img
+  max-width: 100%
+  max-height: 600px

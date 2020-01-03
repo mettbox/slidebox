@@ -1,0 +1,31 @@
+@charset "utf-8"
+
+.toc
+  position: fixed
+  top: 12%
+  bottom: 12%
+  left: 10%
+  right: 10%
+  display: block
+  background-color: rgba($color.shadow, .95)
+  border-radius: 2px
+  overflow: auto
+  font-weight: bolder
+
+  ul
+    margin-top: 10px
+    margin-bottom: 10px
+
+    ul
+      margin-top: 0
+      margin-bottom: 0
+
+  li
+    cursor: pointer
+    display: inline-block
+
+    &:hover
+      text-decoration: underline
+
+    &.active
+      color: $color.primary

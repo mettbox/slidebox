@@ -1,0 +1,29 @@
+@charset "utf-8"
+
+.pagination
+  position: fixed
+  bottom: 10px
+  left: 10px
+  right: 10px
+  display: flex
+  justify-content center
+  align-items: center
+
+  .button
+    background-color: transparent
+    color: $color.light
+    text-decoration: none
+    padding: 10px 15px
+    border: 1px solid transparent
+    display: inline-block
+    transition: all .3s ease
+    outline: none
+
+    &:hover
+      color: $color.primary
+      cursor: pointer
+
+    &.disabled
+      opacity: 0.5
+      pointer-events: none
+      cursor: default

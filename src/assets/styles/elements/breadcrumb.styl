@@ -1,0 +1,40 @@
+@charset "utf-8"
+
+.breadcrumb
+  position: fixed
+  top: 10px
+  left: 10px
+  right: 60px
+  display: flex
+  justify-content flex-start
+  align-items: center
+  font-size: $fontsize.small
+  line-height: $fontsize.small
+  color: $color.light
+  list-style: none
+  margin: 0
+  padding: 0
+  min-height: 26px
+
+  a
+    color: $color.light
+
+    &:hover
+      color: $color.primary
+
+  li
+    display: inline-block
+
+  li:before
+    content: '\E5CC'
+    vertical-align: top
+    display: inline-block
+    font-family: $font.icon
+    font-weight: normal
+    font-style: normal
+    font-size: $fontsize.small
+    margin: 0 10px 0 8px
+
+  li:first-child:before
+    display:none
+

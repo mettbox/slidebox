@@ -1,0 +1,21 @@
+@charset "utf-8"
+
+.progress-bar
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  height: 10px
+  display: block
+  width: 100%
+  background-color: lighten($color.primary, 40%)
+  border-radius: 2px
+  overflow: hidden
+
+  .indicator
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    background-color: $color.primary
+    transition: width .3s linear
