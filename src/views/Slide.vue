@@ -4,20 +4,35 @@
       <router-view />
     </transition>
 
-    <breadcrump :section="section" :chapter="chapter" />
+    <breadcrump
+      :section="section"
+      :chapter="chapter"
+    />
 
-    <pagination :prev="prev" :next="next" v-on:navigate="navigate" />
+    <pagination
+      :prev="prev"
+      :next="next"
+      v-on:navigate="navigate"
+    />
 
-    <progress-bar :current="current" :total="total" />
+    <progress-bar
+      :current="current"
+      :total="total"
+      :numbers="showCounter"
+    />
 
-    <toc v-if="showToc"
+    <toc
+      v-if="showToc"
       :slides="sectionSlides"
       :slide="current -1"
       :path="path"
       v-on:toc-goto="toc"
     />
 
-    <help v-on:help="help" :show="showHelp" />
+    <help
+      :show="showHelp"
+      v-on:help="help"
+    />
   </div>
 </template>
 
@@ -53,7 +68,8 @@ export default {
       sectionSlides: [],
       isFirst: false,
       showToc: false,
-      showHelp: false
+      showHelp: false,
+      showCounter: false
     }
   },
 
@@ -110,6 +126,9 @@ export default {
           break
         case 72:
           this.showHelp = !this.showHelp
+          break
+        case 67:
+          this.showCounter = !this.showCounter
           break
         default:
           break

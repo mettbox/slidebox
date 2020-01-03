@@ -13,6 +13,7 @@
           <li><code>←</code> Previuos Slide</li>
           <li><code>t</code> Toggle TOC</li>
           <li><code>h</code> Toggle Help</li>
+          <li><code>c</code> Toggle Counter</li>
         </ul>
       </div>
     </transition>

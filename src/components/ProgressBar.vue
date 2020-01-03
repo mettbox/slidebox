@@ -1,6 +1,8 @@
 <template>
   <div class="progress-bar">
-    <div class="indicator" :style="{ 'width': percentage }"></div>
+    <div class="indicator" :style="{ 'width': percentage }">
+      <div v-if="numbers" class="numbers">{{ current }} / {{ total }}</div>
+    </div>
   </div>
 </template>
 
@@ -14,6 +16,9 @@ export default {
     },
     total: {
       type: Number
+    },
+    numbers: {
+      type: Boolean
     }
   },
 
