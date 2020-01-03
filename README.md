@@ -13,7 +13,7 @@ npm install
 ### 2. Setup presentation
 
 ```sh
-mv /src/assets/meta.json.sample /src/assets/meta.json
+cp src/assets/meta.json.sample src/assets/meta.json
 ```
 
 And setup your title and topics
