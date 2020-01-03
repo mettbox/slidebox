@@ -5,15 +5,17 @@
       <i v-if="!show" class="icon">help_outline</i>
     </div>
 
-    <div v-if="show" class="modal">
-      <ul>
-        <li><code>esc</code> Home</li>
-        <li><code>←</code>/ <code>→</code> Prev/ next Slide</li>
-        <li><code>t</code> Toggle TOC</li>
-        <li><code>h</code> Toggle Help</li>
-      </ul>
-    </div>
-
+    <transition name="fade" mode="out-in">
+      <div v-if="show" class="modal">
+        <ul>
+          <li><code>esc</code> Home</li>
+          <li><code>→</code> / <code>space</code> Next Slide</li>
+          <li><code>←</code> Previuos Slide</li>
+          <li><code>t</code> Toggle TOC</li>
+          <li><code>h</code> Toggle Help</li>
+        </ul>
+      </div>
+    </transition>
   </div>
 </template>
 

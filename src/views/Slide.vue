@@ -102,6 +102,7 @@ export default {
           this.navigatePrev()
           break
         case 39:
+        case 32:
           this.navigateNext()
           break
         case 84:
