@@ -4,13 +4,13 @@
   "version": "1.0.0",
   "author": "Maik Mettenheimer <maik@mettbox.de> (http://mettbox.de)",
   "private": true,
-  "license" : "MIT License",
+  "license": "MIT License",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/mettbox/slidebox"
+    "type": "git",
+    "url": "https://github.com/mettbox/slidebox"
   },
   "bugs": {
-    "url" : "https://github.com/mettbox/slidebox/issues"
+    "url": "https://github.com/mettbox/slidebox/issues"
   },
   "watch": {
     "generate-content": {
@@ -29,6 +29,7 @@
     "start": "concurrently \"npm run watch\" \"npm run serve\""
   },
   "dependencies": {
+    "markdown-it-deflist": "^2.0.3",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3"
   },
