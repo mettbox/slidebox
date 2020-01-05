@@ -23,5 +23,9 @@ yarn-error.log*
 # Meta descriptions
 /src/assets/meta.json
 
+# Markdown folder
+/markdown
+
 # Generated content
 /src/assets/content
+
