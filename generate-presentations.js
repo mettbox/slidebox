@@ -55,11 +55,9 @@ const splitter = function (readPath, writePath) {
       }
 
       _title = counter + '-' + fileName.toLowerCase()
-        .replace(/:/g, '')
-        .replace(/,/g, '-')
-        .replace(/ /g, '')
-        .replace(/\(/g, '-')
-        .replace(/\)/g, '-')
+        .replace(/ /g, '-')
+        .replace(/[^a-zA-Z0-9\s-_äöüÄÖÜß]/g, '')
+        .replace(/-{2,}/g, '-')
       title = writePath + _title + '.md'
       file += array[i]
       first = false
