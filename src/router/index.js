@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home.vue'
-import Slides from '@/assets/content/slides.json'
+import Slides from '@/assets/presentations/slides.json'
 
 Vue.use(Router)
 
@@ -9,7 +9,7 @@ const slideRoutes = Object.keys(Slides).map(section => {
   const children = Slides[section].map(child => ({
     path: child.id,
     name: child.id,
-    component: () => import(`@/assets/content/${section}/${child.id}.md`)
+    component: () => import(`@/assets/presentations/${section}/${child.id}.md`)
   }))
 
   return {

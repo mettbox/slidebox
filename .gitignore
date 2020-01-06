@@ -20,12 +20,11 @@ yarn-error.log*
 *.sln
 *.sw*
 
-# Meta descriptions
+# Markdown/ presentations folder
+presentations/*
+!presentations/.gitkeep
+
+# Meta descriptions and script generated content
 /src/assets/meta.json
-
-# Markdown folder
-/markdown
-
-# Generated content
-/src/assets/content
+/src/assets/presentations
 

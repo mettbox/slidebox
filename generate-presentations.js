@@ -1,10 +1,16 @@
 const fs = require('fs')
 const path = require('path')
 const copydir = require('copy-dir')
+const inputDir = path.join(__dirname, 'presentations')
+const outputDir = path.join(__dirname, 'src/assets/presentations')
+const json = {}
 
-const inputDir = path.join(__dirname, 'markdown')
-const outputDir = path.join(__dirname, 'src/assets/content')
-
+/**
+ * Split markdown files by headline 1, 2 and 3
+ *
+ * @param {*} readPath
+ * @param {*} writePath
+ */
 const splitter = function (readPath, writePath) {
   let array = []
   let _title = ''
@@ -80,26 +86,40 @@ const splitter = function (readPath, writePath) {
   return meta
 }
 
-const files = fs.readdirSync(inputDir).filter(function (file) {
-  return path.extname(file).toLowerCase() === '.md'
-})
+const isDirectory = fileName => {
+  return fs.lstatSync(fileName).isDirectory()
+}
 
-const json = {}
+const presentations = fs.readdirSync(inputDir).map(fileName => {
+  return path.join(inputDir, fileName)
+}).filter(isDirectory)
+
+if (!presentations.length) {
+  console.error('No presentations found in', inputDir)
+}
 
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir)
 }
 
-files.forEach((file) => {
-  let folder = path.basename(file, '.md')
+presentations.forEach((presentation) => {
+  let folder = path.basename(presentation)
+
   if (!fs.existsSync(`${outputDir}/${folder}/`)) {
     fs.mkdirSync(`${outputDir}/${folder}/`)
   }
 
-  json[folder] = splitter(`${inputDir}/${file}`, `${outputDir}/${folder}/`)
+  let files = fs.readdirSync(presentation).filter(function (file) {
+    return path.extname(file).toLowerCase() === '.md'
+      && path.basename(file, '.md').toLowerCase() !== 'readme'
+  })
 
-  if (fs.existsSync(`${inputDir}/${folder}/`)) {
-    copydir.sync(`${inputDir}/${folder}/`, `${outputDir}/${folder}/${folder}`)
+  files.forEach((file) => {
+    json[folder] = splitter(`${inputDir}/${folder}/${file}`, `${outputDir}/${folder}/`)
+  })
+
+  if (fs.existsSync(`${inputDir}/${folder}/assets/`)) {
+    copydir.sync(`${inputDir}/${folder}/assets/`, `${outputDir}/${folder}/assets`)
   }
 })
 

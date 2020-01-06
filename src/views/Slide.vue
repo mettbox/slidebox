@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import Slides from '@/assets/content/slides.json'
+import Slides from '@/assets/presentations/slides.json'
 import Breadcrump from '@/components/Breadcrump.vue'
 import Pagination from '@/components/Pagination.vue'
 import ProgressBar from '@/components/ProgressBar.vue'

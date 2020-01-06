@@ -20,16 +20,12 @@ And setup your title and topics
 
 ### 3. The Content
 
-Store your markdown files in `/markdown`:
+Store your markdown content and assets in `/presentations/`:
 
-```
-# Create a symlink to your markdown content
-$ ln -s ../workshops markdown
-```
-
-- If you need assets, name the folder equal to your markdown file
-- The `generate-content` script split the file with headline 1, 2 and 3
-  and store the new files in `/src/assets/content/`
+- Create a single folder for each presentation
+- If you need image assets, create an `assets` folder in your presentation folder
+- The `generate-presentations` script split the file with headline 1, 2 and 3
+  and store the new files in `/src/assets/presentations/`
 
 ### 4. Start presentation
 

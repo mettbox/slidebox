@@ -27,7 +27,7 @@
 
 <script>
 import Meta from '@/assets/meta.json'
-import Slides from '@/assets/content/slides.json'
+import Slides from '@/assets/presentations/slides.json'
 
 export default {
   name: 'home',
