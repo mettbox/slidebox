@@ -13,9 +13,9 @@
     "url": "https://github.com/mettbox/slidebox/issues"
   },
   "watch": {
-    "generate-content": {
+    "generate-presentations": {
       "patterns": [
-        "markdown"
+        "presentations"
       ],
       "extensions": "md"
     }
