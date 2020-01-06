@@ -5,20 +5,33 @@
       <li v-for="(topic, index) in meta.topics" :key="index">{{ topic }}</li>
     </ul>
 
-    <h1 v-if="meta && meta.title" class="center">{{ meta.title }}</h1>
+    <h1 v-if="meta && meta.title" class="center">
+      {{ meta.title }}
+    </h1>
 
-    <div v-for="section in Object.keys(entries)" :key="section" class="card">
-      <div v-for="(entry, index) in entries[section]" :key="entry.id">
-        <h2 v-if="entry.isFirst" @click="$router.push({ name: entry.id })">
-          {{ entry.title }}
-        </h2>
-        <a
-          v-if="!entry.isFirst && !entry.chapter"
-          @click="$router.push({ name: entry.id })"
-          :class="{ last : last(section, index) }"
-        >
-          {{ entry.title }}
-        </a>
+    <div class="cards-container">
+      <div v-for="section in Object.keys(entries)" :key="section" class="card">
+        <div @click="$router.push({ name: entries[section][0].id })" class="face face1">
+          <div class="content">
+            <h2>{{ entries[section][0].title }}</h2>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="content">
+            <p>
+              <span v-for="(entry, index) in entries[section]" :key="entry.id">
+                <a
+                  v-if="!entry.isFirst && !entry.chapter"
+                  @click="$router.push({ name: entry.id })"
+                  :class="{ last : last(section, index) }"
+                >
+                  {{ entry.title }}
+                </a>
+              </span>
+            </p>
+
+          </div>
+        </div>
       </div>
     </div>
 
