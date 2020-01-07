@@ -9,27 +9,29 @@
       {{ meta.title }}
     </h1>
 
-    <div class="cards-container">
-      <div v-for="section in Object.keys(entries)" :key="section" class="card">
-        <div @click="$router.push({ name: entries[section][0].id })" class="face face1">
-          <div class="content">
-            <h2>{{ entries[section][0].title }}</h2>
+    <div class="cards-wrapper">
+      <div class="cards-container" :style="cardsContainerStyles">
+        <div v-for="section in Object.keys(entries)" :key="section" class="card">
+          <div @click="$router.push({ name: entries[section][0].id })" class="face face1">
+            <div class="content">
+              <h2>{{ entries[section][0].title }}</h2>
+            </div>
           </div>
-        </div>
-        <div class="face face2">
-          <div class="content">
-            <p>
-              <span v-for="(entry, index) in entries[section]" :key="entry.id">
-                <a
-                  v-if="!entry.isFirst && !entry.chapter"
-                  @click="$router.push({ name: entry.id })"
-                  :class="{ last : last(section, index) }"
-                >
-                  {{ entry.title }}
-                </a>
-              </span>
-            </p>
+          <div class="face face2">
+            <div class="content">
+              <p>
+                <span v-for="(entry, index) in entries[section]" :key="entry.id">
+                  <a
+                    v-if="!entry.isFirst && !entry.chapter"
+                    @click="$router.push({ name: entry.id })"
+                    :class="{ last : last(section, index) }"
+                  >
+                    {{ entry.title }}
+                  </a>
+                </span>
+              </p>
 
+            </div>
           </div>
         </div>
       </div>
@@ -50,6 +52,11 @@ export default {
     },
     entries () {
       return Slides
+    },
+    cardsContainerStyles () {
+      return {
+        width: '1560px'
+      }
     }
   },
   methods: {
