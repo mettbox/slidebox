@@ -108,8 +108,8 @@ presentations.forEach((presentation) => {
   }
 
   let files = fs.readdirSync(presentation).filter(function (file) {
-    return path.extname(file).toLowerCase() === '.md'
-      && path.basename(file, '.md').toLowerCase() !== 'readme'
+    return path.extname(file).toLowerCase() === '.md' &&
+      path.basename(file, '.md').toLowerCase() !== 'readme'
   })
 
   files.forEach((file) => {
